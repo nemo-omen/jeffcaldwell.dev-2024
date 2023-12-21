@@ -15,7 +15,7 @@
   --tertiary: hsl(257, 15%, 88%);
   --light: hsl(270, 100%, 99%);
   --accent: hsl(0, 100%, 71%);
-  --accent--alt: hsl(0, 100%, 95%);
+  --accent--alt: hsl(0, 100%, 90%);
   --accent-light-scheme: hsl(0, 100%, 66%);
 
   --background: var(--primary);
@@ -26,121 +26,73 @@
   --outline-width: 2px;
   --outline-style: solid;
   --outline-color: var(--color-primary);
+
+  /* Transitions */
+  --transition: 0.2s ease-in-out;
 }
 
-@layer reset {
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    -moz-text-size-adjust: none;
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
-  }
-
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  p,
-  figure,
-  blockquote,
-  dl,
-  dd {
-    margin-block-end: 0;
-  }
-
-  ul[role='list'],
-  ol[role='list'] {
-    list-style: none;
-  }
-
-  body {
-    min-height: 100vh;
-    line-height: 1.5;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    text-wrap: balance;
-    line-height: 1;
-    margin: 0;
-    padding: 0;
-  }
-
-  a:not([class]) {
-    text-decoration-skip-ink: auto;
-    color: currentColor;
-    text-decoration-thickness: max(0.08em, 1px);
-    text-underline-offset: 0.15em;
-  }
-
-  img,
-  picture {
-    max-width: 100%;
-    display: block;
-  }
-
-  input,
-  button,
-  textarea,
-  select {
-    font: inherit;
-  }
-
-  textarea:not([rows]) {
-    min-height: 10em;
-  }
-
-  :focus-visible {
-    --outline-size: max(2px, 0.15em);
-
-    outline: var(--outline-width, var(--outline-size)) var(--outline-style, solid) var(--outline-color, currentColor);
-    outline-offset: var(--outline-offset, var(--outline-size));
-  }
-
-  /* Scroll padding allowance above anchor links */
-  :target {
-    scroll-padding-block-start: 2rem;
-  }
-
-  /* Scroll padding allowance below focused elements 
-    to ensure they are clearly in view */
-  :focus {
-    scroll-padding-block-end: 8vh;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@layer theme {
-  html {
-    color-scheme: dark light;
-    accent-color: var(--accent);
-    background-color: var(--background);
-    color: var(--foreground);
-  }
-
-  @media screen and (prefers-color-scheme: light) {
-    :root {
-      --background: var(--color-light);
-      --foreground: var(--color-primary);
-      --link: var(--accent-light-scheme);
-    }
-  }
+html {
+  font-size: 100%;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 body {
-  padding: 2em;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: var(--step-0);
+  font-weight: 400;
 }
 
-p {
-  max-width: 70ch;
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+  line-height: 1.5;
+  max-width: 35em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+blockquote {
+  border-left: 0.25em solid var(--accent);
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 1em;
+  font-style: italic;
+  font-size: var(--step-1);
+}
+
+a:not([class]) {
+  color: currentColor;
+  text-decoration: underline;
+  text-decoration-thickness: max(0.08em, 1px);
+  text-underline-offset: 0.2em;
+  text-decoration-skip-ink: auto;
+  transition: color var(--transition);
+
+  &:hover {
+    color: var(--link);
+  }
 }
