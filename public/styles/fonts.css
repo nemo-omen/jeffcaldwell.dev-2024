@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Bombshell';
+  src: url('/fonts/BombshellDuo/Bombshell.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'CothamSans';
+  src: url('/fonts/CothamSans.otf') format('opentype');
+  font-weight: 400;
+}

@@ -1,16 +1,24 @@
-@layer reset, theme;
-
 :root {
-  /* Default font size */
+  /* Spacing */
+  --layout-spacing: clamp(2rem, 5vw, 4rem);
+  --layout-padding: clamp(1rem, 2.5vw, 4rem);
+
+  /* Fonts */
+  --sans: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
   --step-0: 1rem;
   --step-1: 1.25rem;
   --step-2: 1.56rem;
   --step-3: 1.95rem;
   --step-4: 2.43rem;
+  --step-5: 3.04rem;
+  --step-6: 3.8rem;
+  --step-7: 4.75rem;
+  --step-8: 5.94rem;
 
   /* Colors */
   --primary: hsl(252, 23%, 9%);
+  --primary-darker: hsl(252, 23%, 3%);
   --secondary: hsl(283, 7%, 47%);
   --tertiary: hsl(257, 15%, 88%);
   --light: hsl(270, 100%, 99%);
@@ -55,10 +63,27 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: var(--sans);
   font-size: var(--step-0);
   font-weight: 400;
-  margin: 4rem;
+}
+
+header,
+footer {
+  /* margin: clamp(1rem, 2.5vw, 4rem); */
+  /* width: clamp(20rem, 90vw, 80rem);
+  margin: 0 auto; */
+  padding: clamp(1rem, 2.5vw, 3rem);
+  /* padding: clamp(2rem, 5vw, 3rem); */
+}
+
+main {
+  /* padding-block: var(--layout-spacing); */
+}
+
+.constrained {
+  width: clamp(20rem, 90vw, 80rem);
+  margin: 0 auto;
 }
 
 p,
@@ -80,6 +105,23 @@ h4 {
   line-height: 1;
   margin: 0;
   padding: 0;
+  font-family: 'CothamSans';
+}
+
+h1 {
+  font-size: var(--step-4);
+}
+
+h2 {
+  font-size: var(--step-3);
+}
+
+h3 {
+  font-size: var(--step-2);
+}
+
+h4 {
+  font-size: var(--step-1);
 }
 
 blockquote {
@@ -115,6 +157,18 @@ a:not([class]) {
 
 .accent-light-scheme {
   color: var(--accent-light-scheme);
+}
+
+.primary {
+  color: var(--primary);
+}
+
+.primary-darker {
+  color: var(--primary-darker);
+}
+
+.secondary {
+  color: var(--secondary);
 }
 
 .bg-primary {
@@ -172,4 +226,30 @@ a:not([class]) {
 
 .align-baseline {
   align-items: baseline;
+}
+
+.grid {
+  display: grid;
+}
+
+.col-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Media Queries */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--primary);
+    --foreground: var(--light);
+    --link: var(--accent);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: var(--light);
+    --foreground: var(--primary);
+    --link: var(--accent-light-scheme);
+  }
 }
