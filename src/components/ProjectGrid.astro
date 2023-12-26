@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { allProjects }: CollectionEntry<'projects'> = Astro.props;
+
+import ProjectCard from './ProjectCard.astro';
+---
+
+<section id="projects">
+  <div class="projects-content constrained">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      {
+        allProjects.map((p) => {
+          return <ProjectCard project={p} />;
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  #projects {
+    padding-block: var(--space-l);
+    background-color: var(--background-alt);
+  }
+
+  .projects-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+    margin-block: var(--space-xl);
+  }
+
+  .projects-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-m);
+    /* grid-template-columns: repeat(auto-fit, minmax(min-content, 300px)); */
+  }
+</style>

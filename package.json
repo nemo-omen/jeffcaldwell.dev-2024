@@ -1,5 +1,5 @@
 {
-  "name": "whatever",
+  "name": "jeffcaldwell.dev-2024",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -7,11 +7,15 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.4",
     "astro": "^4.0.7",
     "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "vitest": "^1.1.0"
   }
 }
