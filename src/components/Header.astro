@@ -14,6 +14,7 @@ const dateString = currentDate.toLocaleDateString('en-US', {
   <div class="header-inner masthead">
     <div class="masthead-section title-section">
       <a href="/">Jeff Caldwell</a>
+      <time>{dateString}</time>
     </div>
     <Logo />
     <div class="masthead-section menu-section">
@@ -25,11 +26,10 @@ const dateString = currentDate.toLocaleDateString('en-US', {
           <li><a href="/about">About</a></li>
         </ul>
       </nav>
+      <span class="price">Price $1.00</span>
     </div>
   </div>
   <div class="header-inner" id="page-meta">
-    <time>{dateString}</time>
-    <span class="bold">Price $1.00</span>
   </div>
 </header>
 
@@ -61,7 +61,33 @@ const dateString = currentDate.toLocaleDateString('en-US', {
 
   .masthead-section {
     border-top: 1px solid var(--foreground);
-    border-bottom: 1px solid var(--foreground);
+    /* border-bottom: 1px solid var(--foreground); */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title-section {
+    align-items: flex-start;
+
+    & a {
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid var(--foreground);
+    }
+  }
+
+  time, .price {
+    font-size: var(--step--2);
+    color: var(--accent-light-scheme);
+  }
+
+  .menu-section {
+    align-items: flex-end;
+
+    & nav {
+      width: 100%;
+      border-bottom: 1px solid var(--foreground);
+    }
   }
 
   nav {

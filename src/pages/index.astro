@@ -14,9 +14,12 @@ const allProjects = await getCollection('projects', ({ data }) => {
 <Base>
   <main class="constrained">
     <section id="intro">
-      <h1>Local developer uses news experience to tell stories with code</h1>
+      <h1>Web developer uses news experience to tell stories with code</h1>
       <section class="intro-content">
-        <Image src={meHalftone} alt="Jeff Caldwell" class="me-image" />
+        <figure class="me-fig">
+          <Image src={meHalftone} alt="Jeff Caldwell" class="me-image" />
+          <figcaption>Jeff Caldwell</figcaption>
+        </figure>
         <div class="intro-body">
           <p>
             <em>UNITED STATES</em> — A web developer who recently earned his degree in computer science has more to
@@ -64,6 +67,8 @@ const allProjects = await getCollection('projects', ({ data }) => {
     .intro-content {
       display: flex;
       gap: var(--space-2xl);
+      justify-content: space-between;
+      align-items: flex-start;
     }
 
     .intro-body {
@@ -76,13 +81,23 @@ const allProjects = await getCollection('projects', ({ data }) => {
       max-width: unset;
     }
 
+    .me-fig {
+      order: 2;
+      margin: 0;
+      padding: 0;
+
+      & figcaption {
+        text-align: center;
+        font-style: italic;
+      }
+    }
+
     .me-image {
       height: clamp(340px, 30cqi, 460px);
       width: auto;
       opacity: 0.8;
       background-color: var(--secondary);
       background-blend-mode: multiply;
-      order: 2;
     }
   </style>
 </Base>
