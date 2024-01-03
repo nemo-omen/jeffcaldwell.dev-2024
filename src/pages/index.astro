@@ -1,8 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
 import ProjectCard from '../components/ProjectCard.astro';
 import ProjectGrid from '../components/ProjectGrid.astro';
 import { getCollection, getEntry } from 'astro:content';
+import meHalftone from '../assets/images/Me_Halftone.png';
 
 const allProjects = await getCollection('projects', ({ data }) => {
   return import.meta.env.PROD ? data.draft !== true : true;
@@ -11,21 +13,29 @@ const allProjects = await getCollection('projects', ({ data }) => {
 
 <Base>
   <main class="constrained">
-    <h1>Local developer uses news experience to tell stories with code</h1>
-    <p>
-      <em>UNITED STATES</em> — A web developer who recently earned his degree in computer science has more to offer than
-      technical know-how — he brings years of journalism experience to make code tell stories.
-    </p>
-    <p>
-      Jeff Caldwell spent years honing his communication skills as a journalist. He spent his days in the newsroom
-      chasing down leads and crafting stories, but that's not all, he went to school for computer science at the same
-      time. He says this mixture of code and communication allows him to bring a different kind of insight into the
-      world of bits and bytes.
-    </p>
-    <p>
-      "I think creating applications and telling stories share a lot in common," said Caldwell. "Whether you're making
-      something for a user or a reader, you need to present the right information so they understand what's happening."
-    </p>
+    <section id="intro">
+      <h1>Local developer uses news experience to tell stories with code</h1>
+      <section class="intro-content">
+        <Image src={meHalftone} alt="Jeff Caldwell" class="me-image" />
+        <div class="intro-body">
+          <p>
+            <em>UNITED STATES</em> — A web developer who recently earned his degree in computer science has more to
+            offer than technical know-how — he brings years of journalism experience to make code tell stories.
+          </p>
+          <p>
+            Jeff Caldwell spent years honing his communication skills as a journalist. He spent his days in the newsroom
+            chasing down leads and crafting stories, but that's not all, he went to school for computer science at the
+            same time. He says this mixture of code and communication allows him to bring a different kind of insight
+            into the world of bits and bytes.
+          </p>
+          <p>
+            "I think creating applications and telling stories share a lot in common," said Caldwell. "Whether you're
+            making something for a user or a reader, you need to present the right information so they understand what's
+            happening."
+          </p>
+        </div>
+      </section>
+    </section>
   </main>
 
   <style>
@@ -49,6 +59,30 @@ const allProjects = await getCollection('projects', ({ data }) => {
       letter-spacing: 0.025em;
       max-width: 30ch;
       line-height: 1.4;
+    }
+
+    .intro-content {
+      display: flex;
+      gap: var(--space-2xl);
+    }
+
+    .intro-body {
+      order: 1;
+      width: 60cqi;
+    }
+
+    .intro-body > p {
+      margin-top: 0;
+      max-width: unset;
+    }
+
+    .me-image {
+      height: clamp(340px, 30cqi, 460px);
+      width: auto;
+      opacity: 0.8;
+      background-color: var(--secondary);
+      background-blend-mode: multiply;
+      order: 2;
     }
   </style>
 </Base>
