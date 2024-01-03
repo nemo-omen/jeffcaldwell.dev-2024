@@ -1,8 +1,10 @@
 :root {
 
   /* Fonts */
-  --sans: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --display: 'CothamSans';
+  --sans: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --serif: 'Newsreader', 'Georgia', sans-serif;
+  /* --display: 'CothamSans'; */
+  --display: var(--sans);
   font-size: 16px;
   --step--2: clamp(0.72rem, 0.6922rem + 0.1391cqi, 0.8rem);
   --step--1: clamp(0.9rem, 0.8652rem + 0.1739cqi, 1rem);
@@ -63,11 +65,11 @@
   --accent-secondary-light-scheme: hsl(203, 100%, 66%);
   --accent-tertiary-light-scheme: hsl(59, 100%, 66%);
 
-  --background: var(--primary);
-  --background-alt: var(--primary-darker);
-  --foreground: var(--light);
+  --background: var(--tertiary);
+  /* --background-alt: var(--primary-darker); */
+  --foreground: var(--primary);
   --link: var(--accent);
-  --surface-hover: var(--primary-lighter);
+  /* --surface-hover: var(--primary-lighter); */
 
   /* Borders and Outlines */
   --outline-width: 2px;
@@ -109,7 +111,8 @@ body {
 
 header,
 footer {
-  padding: var(--space-s-l);
+  padding-block: var(--space-3xs);
+  /* padding-inline: var(--space-m); */
 }
 
 .constrained {
@@ -132,7 +135,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1;
   margin: 0;
   padding: 0;
@@ -324,7 +327,7 @@ a:not([class]) {
 
 /* Media Queries */
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: var(--primary);
     --background-alt: var(--primary-darker);
@@ -344,4 +347,4 @@ a:not([class]) {
     --link: var(--accent-light-scheme);
     --surface-hover: var(--light-darker);
   }
-}
+} */

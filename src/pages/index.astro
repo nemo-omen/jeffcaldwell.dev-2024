@@ -10,125 +10,45 @@ const allProjects = await getCollection('projects', ({ data }) => {
 ---
 
 <Base>
-  <main>
-    <h1 class="hidden-type" aria-label="Jeff Caldwell, Web Developer">Jeff Caldwell, Web Developer</h1>
-    <section id="intro">
-      <div class="intro-wrapper">
-        <img src="/images/Me_Side.png" alt="Jeff Caldwell" width="500" id="me-image" />
-        <!-- <img src="/images/me_bw_outline.png" alt="Jeff Caldwell" width="500" id="me-image" /> -->
-        <div class="intro-content constrained">
-          <h2>Code <span class="background">+</span> Communication</h2>
-        </div>
-      </div>
-    </section>
-    <ProjectGrid allProjects={allProjects} />
+  <main class="constrained">
+    <h1>Local developer uses news experience to tell stories with code</h1>
+    <p>
+      <em>UNITED STATES</em> — A web developer who recently earned his degree in computer science has more to offer than
+      technical know-how — he brings years of journalism experience to make code tell stories.
+    </p>
+    <p>
+      Jeff Caldwell spent years honing his communication skills as a journalist. He spent his days in the newsroom
+      chasing down leads and crafting stories, but that's not all, he went to school for computer science at the same
+      time. He says this mixture of code and communication allows him to bring a different kind of insight into the
+      world of bits and bytes.
+    </p>
+    <p>
+      "I think creating applications and telling stories share a lot in common," said Caldwell. "Whether you're making
+      something for a user or a reader, you need to present the right information so they understand what's happening."
+    </p>
   </main>
 
   <style>
     #intro {
       container-name: intro;
       container-type: inline-size;
-      background-color: var(--background-alt);
-      background-color: var(--accent);
-      border-bottom: 5px solid #fff;
-      border-top: 5px solid #fff;
-      position: relative;
-    }
-
-    .intro-wrapper {
-      clip-path: polygon(0% -100%, 100% -100%, 100% 100%, 0 100%);
-    }
-
-    h2 {
-      color: var(--foreground);
-      text-transform: uppercase;
-      margin-right: calc(var(--space-2xl) * 2);
-      font-size: var(--step-6);
-    }
-
-    .intro-content {
-      position: relative;
-      display: flex;
-      padding-block: var(--space-l);
-      overflow: visible;
-      gap: var(--space-2xl);
-      min-height: 500px;
-      container: intro-content / inline-size;
-    }
-
-    .intro-block {
-      flex: 1;
-      padding-block-start: var(--space-s-l);
       display: flex;
       flex-direction: column;
-      /* justify-content: center; */
-      /* align-items: center; */
+      justify-content: center;
+      gap: var(--space-m);
+      /* height: 100%; */
     }
-    #me {
+    h1 {
+      font-size: var(--step-5);
+      letter-spacing: 0.125em;
+      text-transform: uppercase;
+      border-bottom: 3px solid var(--foreground);
+      padding-bottom: var(--space-xs);
     }
-
-    #me-image {
-      position: absolute;
-      bottom: 0;
-      right: -20cqi;
-      /* right: -5cqi; */
-      /* transform: translateX(-50%); */
-      filter: drop-shadow(
-        calc(-1 * var(--space-m)) calc(-1 * var(--space-m)) var(--space-3xl) var(--primary-darker-alpha)
-      );
-      width: min(70cqi, 450px);
-      pointer-events: none;
-      transform: scaleX(-100%);
-      /* width: 100%; */
-    }
-
-    @container intro (max-width: 456px) {
-      h2 {
-        font-size: var(--step-2);
-      }
-    }
-
-    @container intro (min-width: 456px) {
-      #me-image {
-        width: min(60cqi, 420px);
-        right: -15cqi;
-      }
-      h2 {
-        font-size: var(--step-4);
-      }
-    }
-
-    @container intro (min-width: 768px) {
-      #me-image {
-        width: min(50cqi, 420px);
-        right: -10cqi;
-      }
-
-      h2 {
-        font-size: var(--step-5);
-      }
-    }
-
-    @container intro (min-width: 1024px) {
-      #me-image {
-        width: min(40cqi, 420px);
-        right: -4cqi;
-      }
-
-      h2 {
-        font-size: var(--step-5);
-      }
-    }
-
-    @container intro (min-width: 1280px) {
-      #me-image {
-        width: min(40cqi, 420px);
-        right: 0;
-      }
-
-      h2 {
-        font-size: var(--step-5);
-      }
+    h2 {
+      letter-spacing: 0.025em;
+      max-width: 30ch;
+      line-height: 1.4;
     }
   </style>
 </Base>
